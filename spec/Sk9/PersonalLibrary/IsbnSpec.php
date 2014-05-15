@@ -3,7 +3,6 @@
 namespace spec\Sk9\PersonalLibrary;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Sk9\PersonalLibrary\Isbn;
 
 class IsbnSpec extends ObjectBehavior
