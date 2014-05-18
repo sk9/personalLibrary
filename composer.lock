@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "da0b69d246345941b3df6149c632909f",
+    "hash": "ecd5d6a67a92db099dd6a1c557ab6871",
     "packages": [
         {
             "name": "phpspec/php-diff",
