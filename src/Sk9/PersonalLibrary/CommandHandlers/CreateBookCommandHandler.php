@@ -13,6 +13,6 @@ class CreateBookCommandHandler implements CommandHandler {
 
     public function handle()
     {
-        var_dump('Book is almost created');
+        return 'Command Handled';
     }
 }

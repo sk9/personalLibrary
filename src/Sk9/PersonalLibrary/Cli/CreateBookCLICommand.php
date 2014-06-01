@@ -42,10 +42,9 @@ class CreateBookCLICommand extends Command {
 
         $command = new CreateBookCommand($author,$title);
 
-        $this->commandBus->execute($command);
+        $response = $this->commandBus->execute($command);
 
-
-
+        $output->writeln($response);
         $output->writeln('Book Created');
     }
 }
