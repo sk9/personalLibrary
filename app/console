@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+
+<?php
+namespace spec\Sk9\PersonalLibrary;
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+$application = new Application('Personal Library', '1.0.0');
+
+$container = new ContainerBuilder();
+$container
+    ->register('book_cli_command', 'CreateBookCLICommand')
+    ->addArgument('command_bus','CommandBus');
+
+$command =  $container->get('book_cli_command');
+
+$application->add($command);
+$application->run();
