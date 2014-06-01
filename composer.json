@@ -4,7 +4,9 @@
     "type": "project",
     "description": "My attempt for a better understanding of CQRS,EventSourcing and PHPSpec",
     "require": {
-        "phpspec/phpspec": "2.0.*@dev"
+        "phpspec/phpspec": "2.0.*@dev",
+        "symfony/console": "2.6.*@dev",
+        "symfony/dependency-injection": "2.6.*@dev"
     },
     "autoload": {
         "psr-0": {

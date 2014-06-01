@@ -1,21 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sebastian
- * Date: 31.05.14
- * Time: 00:10
- */
 
-namespace Sk9\PersonalLibrary;
+namespace Sk9\PersonalLibrary\Cli;
 
+use Sk9\PersonalLibrary\Commanding\CommandBus;
+use Sk9\PersonalLibrary\Commands\CreateBookCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-namespace Sk9\PersonalLibrary\Cli;
+class CreateBookCLICommand extends Command {
 
-class CreateBookCommand extends Command {
+    private $commandBus;
+
+    function __construct(CommandBus $commandBus)
+    {
+        $this->commandBus = $commandBus;
+        parent::__construct();
+    }
 
     protected function configure()
     {
@@ -37,6 +39,10 @@ class CreateBookCommand extends Command {
     {
         $title = $input->getArgument('title');
         $author= $input->getArgument('author');
+
+        $command = new CreateBookCommand($author,$title);
+
+        $this->commandBus->execute($command);
 
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sk9\PersonalLibrary;
+namespace Sk9\PersonalLibrary\Domain;
 
 use Prophecy\Exception\InvalidArgumentException;
 

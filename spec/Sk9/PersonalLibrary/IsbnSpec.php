@@ -20,12 +20,12 @@ class IsbnSpec extends ObjectBehavior
         $this->shouldHaveType('Sk9\PersonalLibrary\Isbn');
     }
 
-    function it_should_be_a_valida_isbn_number()
+    function it_should_be_a_valid_isbn_number()
     {
         $this->shouldBeValidIsbn($this::VALID_ISBN);
     }
 
-    function it_has_a_valid_isbn()
+    function it_has_a_valid_isbn_after_initialization()
     {
         $this->getIsbn()->shouldReturn($this::VALID_ISBN);
     }
