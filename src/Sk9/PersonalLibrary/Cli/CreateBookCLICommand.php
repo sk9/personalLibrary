@@ -4,6 +4,7 @@ namespace Sk9\PersonalLibrary\Cli;
 
 use Sk9\PersonalLibrary\Commanding\CommandBus;
 use Sk9\PersonalLibrary\Commands\CreateBookCommand;
+use Sk9\PersonalLibrary\Domain\Book;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -32,6 +33,16 @@ class CreateBookCLICommand extends Command {
                 'author',
                 InputArgument::REQUIRED,
                 'The author name of the book'
+            )
+            ->addArgument(
+                'pages',
+                InputArgument::OPTIONAL,
+                'The number of pages the book has'
+            )
+            ->addArgument(
+                'link',
+                InputArgument::OPTIONAL,
+                'A link to amazon to buy this book'
             );
     }
 
@@ -39,12 +50,18 @@ class CreateBookCLICommand extends Command {
     {
         $title = $input->getArgument('title');
         $author= $input->getArgument('author');
+        $pages= $input->getArgument('pages');
+        $link = $input->getArgument('link');
 
-        $command = new CreateBookCommand($author,$title);
+        $command = new CreateBookCommand($author,$title, $pages, $link);
 
         $response = $this->commandBus->execute($command);
 
-        $output->writeln($response);
-        $output->writeln('Book Created');
+        if($response instanceof Book){
+            $output->writeln('Book Created');
+        }else{
+            $output->writeln('Book creation failed');
+        }
+
     }
 }

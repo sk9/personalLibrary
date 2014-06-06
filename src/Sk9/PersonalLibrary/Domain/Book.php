@@ -2,6 +2,8 @@
 
 namespace Sk9\PersonalLibrary\Domain;
 
+use Sk9\PersonalLibrary\Commands\CreateBookCommand;
+
 class Book
 {
     /**
@@ -57,5 +59,15 @@ class Book
     public function getAmazonLink()
     {
         return $this->link;
+    }
+
+    public static function createBook(CreateBookCommand $command){
+
+        $title = $command->getTitle();
+        $author = $command->getAuthor();
+        $pages = (int)$command->getPages();
+        $link = $command->getLink();
+
+        return new self($title, $author, $pages, $link);
     }
 }
