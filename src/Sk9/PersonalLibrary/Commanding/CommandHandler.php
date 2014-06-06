@@ -7,5 +7,8 @@ use Sk9\PersonalLibrary\Commands\Command;
 
 interface CommandHandler {
 
+    /**
+     * @return \Sk9\PersonalLibrary\Domain\Book|null
+     */
     public function handle(Command $command);
 } 

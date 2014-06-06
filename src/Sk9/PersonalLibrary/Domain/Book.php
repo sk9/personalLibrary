@@ -29,6 +29,9 @@ class Book
 
     /**
      * @param string $title the book
+     * @param string $author
+     * @param integer $pages
+     * @param string $link
      */
     public function __construct($title, $author, $pages, $link)
     {

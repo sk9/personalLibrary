@@ -7,6 +7,9 @@ use PhpSpec\Exception\Exception;
 
 class CommandTranslator {
 
+    /**
+     * @param \Sk9\PersonalLibrary\Commands\Command $command
+     */
     public function toCommandHandler($command){
         $handler = str_replace('Command', 'CommandHandler', get_class($command));
 
