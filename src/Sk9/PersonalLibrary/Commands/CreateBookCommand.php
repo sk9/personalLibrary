@@ -3,7 +3,8 @@
 namespace Sk9\PersonalLibrary\Commands;
 
 
-class CreateBookCommand implements Command{
+class CreateBookCommand implements CommandInterface
+{
     /**
      * @var string $title of the book
      */

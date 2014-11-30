@@ -25,15 +25,18 @@ class BookSpec extends ObjectBehavior
         $this->getTitle()->shouldReturn('A Book Title');
     }
 
-    function it_should_return_the_author(){
+    function it_should_return_the_author()
+    {
         $this->getAuthor()->shouldReturn('Authorname');
     }
 
-    function it_should_return_the_overall_number_of_pages(){
+    function it_should_return_the_overall_number_of_pages()
+    {
         $this->getPages()->shouldReturn(520);
     }
 
-    function it_contains_a_link_to_the_amazon_page(){
+    function it_contains_a_link_to_the_amazon_page()
+    {
         $this->getAmazonLink()->shouldReturn('http://www.amazon.de');
     }
 }

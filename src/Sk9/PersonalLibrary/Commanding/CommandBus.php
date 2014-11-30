@@ -1,9 +1,11 @@
 <?php
 
 namespace Sk9\PersonalLibrary\Commanding;
-use Sk9\PersonalLibrary\Commands\Command;
 
-class CommandBus {
+use Sk9\PersonalLibrary\Commands\CommandInterface;
+
+class CommandBus
+{
 
     protected $commandTranslator;
 
@@ -12,8 +14,10 @@ class CommandBus {
         $this->commandTranslator = $commandTranslator;
     }
 
-    public function execute(Command $command){
+    public function execute(CommandInterface $command)
+    {
         $handler = $this->commandTranslator->toCommandHandler($command);
+
         return $handler->handle($command);
     }
-} 
+}

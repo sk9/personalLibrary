@@ -51,7 +51,7 @@ class Book
 
     public function getAuthor()
     {
-       return $this->author;
+        return $this->author;
     }
 
     public function getPages()
@@ -64,7 +64,8 @@ class Book
         return $this->link;
     }
 
-    public static function createBook(CreateBookCommand $command){
+    public static function createBook(CreateBookCommand $command)
+    {
 
         $title = $command->getTitle();
         $author = $command->getAuthor();

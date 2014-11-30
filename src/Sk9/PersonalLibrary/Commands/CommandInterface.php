@@ -7,6 +7,7 @@
 namespace Sk9\PersonalLibrary\Commands;
 
 
-interface Command {
+interface CommandInterface
+{
 
-} 
+}

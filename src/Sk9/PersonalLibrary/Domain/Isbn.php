@@ -11,7 +11,7 @@ class Isbn
 
     public function __construct($isbn)
     {
-        if(!$this::isValidIsbn($isbn)){
+        if (!self::isValidIsbn($isbn)) {
             throw new InvalidArgumentException('Invalid ISBN Number given.');
         }
 
@@ -20,8 +20,9 @@ class Isbn
 
     public function isValidIsbn($isbnNumber)
     {
-        $res = preg_match($this::$validationPattern,$isbnNumber);
-        return  $res === 1 ? true : false ;
+        $res = preg_match($this::$validationPattern, $isbnNumber);
+
+        return $res === 1 ? true : false;
     }
 
     public function getIsbn()

@@ -12,7 +12,7 @@ class IsbnSpec extends ObjectBehavior
 
     function let()
     {
-        $this->beConstructedWith($this::VALID_ISBN);
+        $this->beConstructedWith(self::VALID_ISBN);
     }
 
     function it_is_initializable()
