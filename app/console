@@ -5,25 +5,14 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 $application = new Application('Personal Library', '1.0.0');
 
 $container = new ContainerBuilder();
-
-$container
-    ->register('handle_create_book', 'Sk9\\PersonalLibrary\\CommandHandlers\\CreateBookCommandHandler');
-
-$container
-    ->register('command_translator', 'Sk9\\PersonalLibrary\\Commanding\\CommandTranslator');
-
-$container
-    ->register('command_bus', 'Sk9\\PersonalLibrary\\Commanding\\CommandBus')
-    ->addArgument(new Reference('command_translator'));
-
-$container
-    ->register('book_cli_command', 'Sk9\\PersonalLibrary\\Cli\\CreateBookCLICommand')
-    ->addArgument(new Reference('command_bus'));
+$loader = new YamlFileLoader($container, new FileLocator(__DIR__));
+$loader->load('config/services.yml');
 
 $command =  $container->get('book_cli_command');
 

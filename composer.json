@@ -6,11 +6,17 @@
     "require": {
         "phpspec/phpspec": "2.0.*@dev",
         "symfony/console": "2.6.*@dev",
-        "symfony/dependency-injection": "2.6.*@dev"
+        "symfony/dependency-injection": "2.6.*@dev",
+        "symfony/config": "~2.6"
     },
     "autoload": {
         "psr-0": {
             "Sk9\\PersonalLibrary": "src"
         }
+    },
+    "config": {
+        "process-timeout":      600,
+        "preferred-install":    "dist",
+        "github-protocols":     ["https"]
     }
 }

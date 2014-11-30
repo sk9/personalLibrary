@@ -1,0 +1,16 @@
+parameters:
+
+services:
+    handle_create_book:
+        class:     Sk9\PersonalLibrary\CommandHandlers\CreateBookCommandHandler
+
+    command_translator:
+        class:     Sk9\PersonalLibrary\Commanding\CommandTranslator
+
+    command_bus:
+        class:     Sk9\PersonalLibrary\Commanding\CommandBus
+        arguments: ["@command_translator"]
+
+    book_cli_command:
+        class:     Sk9\PersonalLibrary\Cli\CreateBookCLICommand
+        arguments: ["@command_bus"]

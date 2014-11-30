@@ -23,7 +23,7 @@ class CreateBookCLICommand extends Command {
     protected function configure()
     {
         $this
-            ->setName('libray:createBook')
+            ->setName('library:createBook')
             ->setDescription('Create a new book for the library')
             ->addArgument(
                 'title',
@@ -58,6 +58,7 @@ class CreateBookCLICommand extends Command {
         $response = $this->commandBus->execute($command);
 
         if($response instanceof Book){
+            var_dump($response);die;
             $output->writeln('Book Created');
         }else{
             $output->writeln('Book creation failed');
