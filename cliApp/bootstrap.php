@@ -1,6 +1,5 @@
-#!/usr/bin/env php
-
 <?php
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Config\FileLocator;
@@ -15,6 +14,5 @@ $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
 $loader->load('config/services.yml');
 
 $command = $container->get('book_cli_command');
-
 $application->add($command);
 $application->run();

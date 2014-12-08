@@ -1,7 +1,6 @@
 <?php
 
-namespace Sk9\PersonalLibrary\Commands;
-
+namespace Sk9\PersonalLibrary\Domain\Commands;
 
 class CreateBookCommand implements CommandInterface
 {

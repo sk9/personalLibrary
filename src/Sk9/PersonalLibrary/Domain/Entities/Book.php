@@ -1,8 +1,8 @@
 <?php
 
-namespace Sk9\PersonalLibrary\Domain;
+namespace Sk9\PersonalLibrary\Domain\Entities;
 
-use Sk9\PersonalLibrary\Commands\CreateBookCommand;
+use Sk9\PersonalLibrary\Domain\Commands\CreateBookCommand;
 
 class Book
 {

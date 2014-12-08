@@ -1,16 +1,15 @@
 <?php
 
-namespace Sk9\PersonalLibrary\Commanding;
-
+namespace Sk9\PersonalLibrary\Domain\CommandHandlers;
 
 use PhpSpec\Exception\Exception;
-use Sk9\PersonalLibrary\Commands\CommandInterface;
+use Sk9\PersonalLibrary\Domain\Commands\CommandInterface;
 
 class CommandTranslator
 {
 
     /**
-     * @param \Sk9\PersonalLibrary\Commands\CommandInterface $command
+     * @param \Sk9\PersonalLibrary\Domain\Commands\CommandInterface $command
      */
     public function toCommandHandler(CommandInterface $command)
     {

@@ -1,17 +1,11 @@
 <?php
-/**
- * personalLibrary.
- * User: sebastian
- */
 
-namespace Sk9\PersonalLibrary\CommandHandlers;
-
+namespace Sk9\PersonalLibrary\Domain\CommandHandlers;
 
 use PhpSpec\Exception\Exception;
-use Sk9\PersonalLibrary\Commanding\CommandHandlerInterface;
-use Sk9\PersonalLibrary\Commands\CommandInterface;
-use Sk9\PersonalLibrary\Commands\CreateBookCommand;
-use Sk9\PersonalLibrary\Domain\Book;
+use Sk9\PersonalLibrary\Domain\Commands\CommandInterface;
+use Sk9\PersonalLibrary\Domain\Commands\CreateBookCommand;
+use Sk9\PersonalLibrary\Domain\Entities\Book;
 
 class CreateBookCommandHandler implements CommandHandlerInterface
 {

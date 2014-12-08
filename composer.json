@@ -11,8 +11,11 @@
         "league/event": "~1.0"
     },
     "autoload": {
-        "psr-0": {
-            "Sk9\\PersonalLibrary": "src"
+        "files": [
+            "cliApp/bootstrap.php"
+        ],
+        "psr-4": {
+            "Sk9\\PersonalLibrary\\": "src/"
         }
     },
     "config": {

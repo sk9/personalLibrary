@@ -1,8 +1,8 @@
 <?php
 
-namespace Sk9\PersonalLibrary\Commanding;
+namespace Sk9\PersonalLibrary\Domain\CommandHandlers;
 
-use Sk9\PersonalLibrary\Commands\CommandInterface;
+use Sk9\PersonalLibrary\Domain\Commands\CommandInterface;
 
 class CommandBus
 {

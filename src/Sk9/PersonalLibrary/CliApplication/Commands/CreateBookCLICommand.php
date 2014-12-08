@@ -1,10 +1,10 @@
 <?php
 
-namespace Sk9\PersonalLibrary\Cli;
+namespace Sk9\PersonalLibrary\CliApplication\Commands;
 
-use Sk9\PersonalLibrary\Commanding\CommandBus;
-use Sk9\PersonalLibrary\Commands\CreateBookCommand;
-use Sk9\PersonalLibrary\Domain\Book;
+use Sk9\PersonalLibrary\Domain\CommandHandlers\CommandBus;
+use Sk9\PersonalLibrary\Domain\Commands\CreateBookCommand;
+use Sk9\PersonalLibrary\Domain\Entities\Book;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -59,6 +59,7 @@ class CreateBookCLICommand extends Command
 
         $response = $this->commandBus->execute($command);
 
+        // for testing only
         if ($response instanceof Book) {
             $output->writeln('Book Created');
         }

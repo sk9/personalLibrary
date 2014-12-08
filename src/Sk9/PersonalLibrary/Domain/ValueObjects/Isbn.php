@@ -1,8 +1,8 @@
 <?php
 
-namespace Sk9\PersonalLibrary\Domain;
+namespace Sk9\PersonalLibrary\Domain\ValueObjects;
 
-use Prophecy\Exception\InvalidArgumentException;
+use Symfony\Component\Process\Exception\InvalidArgumentException;
 
 class Isbn
 {
