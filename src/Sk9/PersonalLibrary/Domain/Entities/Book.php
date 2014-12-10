@@ -3,7 +3,6 @@
 namespace Sk9\PersonalLibrary\Domain\Entities;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
-use League\Event\GeneratorTrait;
 use Sk9\PersonalLibrary\Domain\Commands\CreateBookCommand;
 use Sk9\PersonalLibrary\Domain\Events\BookWasCreated;
 
