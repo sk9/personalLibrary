@@ -8,7 +8,8 @@
         "symfony/console": "2.6.*@dev",
         "symfony/dependency-injection": "2.6.*@dev",
         "symfony/config": "~2.6",
-        "league/event": "~1.0"
+        "broadway/broadway": "~0.3.0",
+        "symfony/proxy-manager-bridge": "~2.3"
     },
     "autoload": {
         "files": [

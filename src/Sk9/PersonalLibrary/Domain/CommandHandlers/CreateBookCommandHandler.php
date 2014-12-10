@@ -2,27 +2,19 @@
 
 namespace Sk9\PersonalLibrary\Domain\CommandHandlers;
 
-use PhpSpec\Exception\Exception;
+use League\Event\EmitterInterface;
 use Sk9\PersonalLibrary\Domain\Commands\CommandInterface;
 use Sk9\PersonalLibrary\Domain\Commands\CreateBookCommand;
 use Sk9\PersonalLibrary\Domain\Entities\Book;
 
-class CreateBookCommandHandler implements CommandHandlerInterface
+class CreateBookCommandHandler extends \Broadway\CommandHandling\CommandHandler
 {
 
-    public function handle(CommandInterface $command)
+    /**
+     * A new book aggregate root is created.
+     */
+    protected function handleCreateBookCommand(CreateBookCommand $command)
     {
-        $book = null;
-
-        try {
-            if ($command instanceof CreateBookCommand) {
-                $book = Book::createBook($command);
-            }
-        } catch (Exception $ex) {
-            throw new Exception('Command ' . get_class($command) . ' could no\'t be instantiated
-                or is no\'t of type CreateBookCommand');
-        }
-
-        return $book;
+        $book = Book::createBook($command);
     }
 }

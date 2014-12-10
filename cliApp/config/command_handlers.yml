@@ -1,0 +1,7 @@
+
+services:
+
+    sk9.command_handling.create_book_handler:
+        class:     Sk9\PersonalLibrary\Domain\CommandHandlers\CreateBookCommandHandler
+        tags:
+            -  { name: command_handler }

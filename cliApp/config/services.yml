@@ -1,16 +1,31 @@
 parameters:
 
 services:
-    handle_create_book:
-        class:     Sk9\PersonalLibrary\Domain\CommandHandlers\CreateBookCommandHandler
 
-    command_translator:
-        class:     Sk9\PersonalLibrary\Domain\CommandHandlers\CommandTranslator
+    broadway.command_handling.simple_command_bus:
+        class:     Broadway\CommandHandling\SimpleCommandBus
 
-    command_bus:
-        class:     Sk9\PersonalLibrary\Domain\CommandHandlers\CommandBus
-        arguments: ["@command_translator"]
+#    broadway.command_handling.event_dispatching_command_bus:
+#        class:     Broadway\CommandHandling\EventDispatchingCommandBus
+#        public: false
+#        arguments: ["@broadway.command_handling.simple_command_bus", "broadway.event_dispatcher"]
 
-    book_cli_command:
+    sk9.cli_app.book_command:
         class:     Sk9\PersonalLibrary\CliApplication\Commands\CreateBookCLICommand
-        arguments: ["@command_bus"]
+        arguments: ["@broadway.command_handling.simple_command_bus", "@broadway.uuid.generator"]
+
+    broadway.uuid.generator:
+        class:     Broadway\UuidGenerator\Rfc4122\Version4Generator
+
+#    broadway.event_handling.event_bus:
+#        class:     Broadway\EventHandling\SimpleEventBus
+#        lazy: true
+#
+#    broadway.event_dispatcher:
+#        class:     Broadway\EventDispatcher\EventDispatcher
+
+
+##tags:
+##             -  { name: command_handler }
+##             -  { name: broadway.domain.event_listener }
+##             -  { name: broadway.event_listener }

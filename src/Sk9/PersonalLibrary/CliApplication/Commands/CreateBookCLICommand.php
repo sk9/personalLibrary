@@ -2,9 +2,9 @@
 
 namespace Sk9\PersonalLibrary\CliApplication\Commands;
 
-use Sk9\PersonalLibrary\Domain\CommandHandlers\CommandBus;
+use Broadway\CommandHandling\SimpleCommandBus;
+use Broadway\UuidGenerator\Rfc4122\Version4Generator;
 use Sk9\PersonalLibrary\Domain\Commands\CreateBookCommand;
-use Sk9\PersonalLibrary\Domain\Entities\Book;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,10 +14,12 @@ class CreateBookCLICommand extends Command
 {
 
     private $commandBus;
+    private $generator;
 
-    function __construct(CommandBus $commandBus)
+    function __construct(SimpleCommandBus $commandBus, Version4Generator $generator)
     {
         $this->commandBus = $commandBus;
+        $this->generator = $generator;
         parent::__construct();
     }
 
@@ -55,13 +57,8 @@ class CreateBookCLICommand extends Command
         $pages = $input->getArgument('pages');
         $link = $input->getArgument('link');
 
-        $command = new CreateBookCommand($author, $title, $pages, $link);
+        $command = new CreateBookCommand($this->generator->generate(), $author, $title, $pages, $link);
 
-        $response = $this->commandBus->execute($command);
-
-        // for testing only
-        if ($response instanceof Book) {
-            $output->writeln('Book Created');
-        }
+        $this->commandBus->dispatch($command);
     }
 }

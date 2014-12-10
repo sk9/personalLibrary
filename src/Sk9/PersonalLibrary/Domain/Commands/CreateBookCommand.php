@@ -2,66 +2,35 @@
 
 namespace Sk9\PersonalLibrary\Domain\Commands;
 
-class CreateBookCommand implements CommandInterface
+class CreateBookCommand extends BookCommand
 {
     /**
      * @var string $title of the book
      */
-    private $title;
+    public $title;
 
     /**
      * @var string $author of the book
      */
-    private $author;
+    public $author;
 
     /**
      * @var int number of $pages of the book has
      */
-    private $pages;
+    public $pages;
 
     /**
      * @var string A $link to amazon to buy this book
      */
-    private $link;
+    public $link;
 
-    function __construct($author, $title, $pages, $link)
+    function __construct($bookId, $author, $title, $pages, $link)
     {
+        parent::__construct($bookId);
         $this->author = $author;
         $this->title = $title;
         $this->pages = $pages;
         $this->link = $link;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->link;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPages()
-    {
-        return $this->pages;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
     }
 
 }
