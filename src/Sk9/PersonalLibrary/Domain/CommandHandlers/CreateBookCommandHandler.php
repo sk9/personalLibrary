@@ -2,8 +2,6 @@
 
 namespace Sk9\PersonalLibrary\Domain\CommandHandlers;
 
-use League\Event\EmitterInterface;
-use Sk9\PersonalLibrary\Domain\Commands\CommandInterface;
 use Sk9\PersonalLibrary\Domain\Commands\CreateBookCommand;
 use Sk9\PersonalLibrary\Domain\Entities\Book;
 
